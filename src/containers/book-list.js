@@ -6,7 +6,7 @@ import { bindActionCreators } from 'redux';
 class BookList extends Component {
     renderList() {
         return this.props.books.map((book) => {
-       return (
+        return (
          <li className="list-group-item"
              onClick={() => this.props.selectBook(book)}
              key={book.title}>
@@ -26,12 +26,13 @@ class BookList extends Component {
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({selectBook : selectBook()}, dispatch);
+    return bindActionCreators({selectBook : selectBook}, dispatch);
 }
 
 function mapStateToProps(state) {
     return {
-      books : state.books
+        books : state.books,
+        book : state.selectbook
     };
 }
 
